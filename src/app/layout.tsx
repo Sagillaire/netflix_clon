@@ -1,3 +1,8 @@
+import { SafeHydrate } from '@/core/config/Hooks'
+import { ClientComponent } from '@/core/Auth/QueryClientConfig'
+
+// Styles
+import './styles.css'
 import './normalize.css'
 
 export const metadata = {
@@ -9,7 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {children}
+        <SafeHydrate>
+          <ClientComponent>
+            {children}
+          </ClientComponent>
+        </SafeHydrate>
       </body>
     </html>
   )
